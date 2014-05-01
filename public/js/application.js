@@ -11,7 +11,12 @@ Display.prototype = {
   renderBoard: function(rowCount, columnCount) {
     document.querySelector(".container").style.display = "block"
   },
-  renderPiece: function(player, column) {
+  renderPiece: function() {
+
+    // document.querySelector(".container").style.color = "red"
+
+    console.log(event.target)
+    event.target.style.background = "red"
     // (targets.cell).className = "red filled"
   }
 }
@@ -64,6 +69,11 @@ GamePlay.prototype = {
     model.generateBoard(view.numCells,view.columnCount)
     view.renderBoard()
   },
+  dropPiece: function() {
+    // console.log(this)
+    view.renderPiece(this)
+    // model.generatePiece()
+  }
 }
 
 
@@ -76,14 +86,21 @@ function Binder(view,controller) {
 
 Binder.prototype = {
   bind: function() {
-    this.bindListener()
+    this.bindStartGameListener()
+    this.placePieceListener()
   },
-  bindListener: function() {
+  bindStartGameListener: function() {
     var startButtonSelector = document.querySelector("#start_game")
     startButtonSelector.addEventListener("click", controller.initializeBoard)
 
     // Let's talk about initialize board - not being passed row / column info
+  },
+  placePieceListener: function() {
+    var cellSelector = document.querySelector(".container")
+    cellSelector.addEventListener("click", controller.dropPiece)
+
   }
+
 }
 
 // var targets = {}
