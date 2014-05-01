@@ -3,8 +3,9 @@
 }
 
 body {
-  background-img: url('/images/downtown.jpg');
+  background: url('http://i.imgur.com/Ytm8vON.jpg');
 }
+
 
 .container {
   width: 620px;
@@ -14,8 +15,9 @@ body {
   margin-bottom: 15%;
   margin-top: 15%;
   min-margin-top: 400px;
-  border: black solid;
+  border: yellow solid;
   background: transparent;
+  overflow: hidden;
 }
 
 .flex-container {
@@ -37,19 +39,19 @@ div {
 
 .flex-container div {
   display: block;
-  color: red;
-  background: blue;
+
   margin-left: 1%;
   margin-right: 1%;
-  border: solid black;
+  border: solid yellow;
   min-width: 50px;
   width: 75px;
   height: 75px;
-}
-.square {
   flex: 1;
-  border: yellow 50px solid;
 }
+# .square {
+
+#   border: solid yellow 50px;
+# }
 
 img {
   height: 6%;
