@@ -91,13 +91,13 @@ Binder.prototype = {
   },
   bindStartGameListener: function() {
     var startButtonSelector = document.querySelector("#start_game")
-    startButtonSelector.addEventListener("click", controller.initializeBoard)
+    startButtonSelector.addEventListener("click", controller.initializeBoard, false)
 
     // Let's talk about initialize board - not being passed row / column info
   },
   placePieceListener: function() {
     var cellSelector = document.querySelector(".container")
-    cellSelector.addEventListener("click", controller.dropPiece)
+    cellSelector.addEventListener("click", controller.dropPiece, false)
 
   }
 
