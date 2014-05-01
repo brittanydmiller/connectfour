@@ -1,15 +1,15 @@
 //////////////////////  View  /////////////////////////////////////
-rowCount = 6
-columnCount = 7
-numCells = rowCount * columnCount
 
-Display = function() {
-  this.targets = {}
+function Display() {
+  this.targets = {},
+  this.rowCount = 6,
+  this.columnCount = 7,
+  this.numCells = this.rowCount * this.columnCount
 }
 
 Display.prototype = {
   renderBoard: function(rowCount, columnCount) {
-    // $(targets.board).css("visibility","not invisible")
+    document.querySelector(".container").style.display = "block"
   },
   renderPiece: function(player, column) {
     // (targets.cell).className = "red filled"
@@ -17,51 +17,59 @@ Display.prototype = {
 }
 
 //////////////////////  Model  /////////////////////////////////////
-ConnectFour = function() {}
+function ConnectFour() {}
 
 ConnectFour.prototype = {
   generateBoard: function(numCells,columnCount) {
-    this.currentGame = new board(),
+    this.currentGame = new Board(),
     this.currentGame.generateCells(numCells,columnCount)
   }
 }
 
-function board() {
+function Board() {
   this.completed = false
   this.cells = []
 }
 
-board.prototype = {
+Board.prototype = {
   generateCells: function(numCells,columnCount){
     for (var i = 0; i < numCells; i++) {
-      this.cells.push(new cell(i, i % columnCount ))
+      this.cells.push(new Cell(i, i % columnCount ))
     }
+    console.log(this.cells)
   }
 }
 
-function cell(id, column) {
+function Cell(id, column) {
   this.status = null,
   this.id = id,
   this.column = column
 }
 
 //////////////////////  Controller  /////////////////////////////////////
+window.onload = function() {
+  view = new Display()
+  model = new ConnectFour()
+  controller = new GamePlay(model,view)
+  new Binder(view,controller).bind()
+}
 
-GamePlay = function(model,view) {
+function GamePlay(model,view) {
   this.model = model
   this.view = view
 }
 
 GamePlay.prototype = {
-  initializeBoard: function(numCells,columnCount) {
-    this.model.generateBoard(numCells,columnCount)
+  initializeBoard: function() {
+    model.generateBoard(view.numCells,view.columnCount)
+    view.renderBoard()
   },
 }
 
 
 //////////////////////  Binder  /////////////////////////////////////
 
-Binder = function(view,controller) {
+function Binder(view,controller) {
   this.view = view
   this.controller = controller
 }
@@ -71,18 +79,12 @@ Binder.prototype = {
     this.bindListener()
   },
   bindListener: function() {
-    return true
+    var startButtonSelector = document.querySelector("#start_game")
+    startButtonSelector.addEventListener("click", controller.initializeBoard)
+
+    // Let's talk about initialize board - not being passed row / column info
   }
 }
 
 // var targets = {}
-
-
-view = new Display()
-model = new ConnectFour()
-controller = new GamePlay(model,view)
-controller.initializeBoard(numCells,columnCount)
-
-new Binder(view,controller).bind()
-
-console.log(controller.model.currentGame.cells)
+// controller.initializeBoard(numCells,columnCount)
