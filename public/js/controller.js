@@ -10,6 +10,15 @@ GamePlay.prototype = {
     view.renderBoard()
   },
 
+  initializePlayers: function() {
+    player1 = new Player("drewfwest@gmail.com", "red")
+    player2 = new Player("brittanydmiller@gmail.com", "blue")
+    player1.addGrav(player1.email)
+    player2.addGrav(player2.email)
+    model.addPlayer(player1)
+    model.addPlayer(player2)
+  },
+
   dropPiece: function() {
     cellId = parseInt(event.target.id)
     game = controller.model.currentGame
@@ -19,34 +28,24 @@ GamePlay.prototype = {
       game.getCell(cellId).updateStatus(player);
       console.log(game.hasWinner())
       controller.model.changePlayer();
+      this.summonPiece()
     }
   },
 
-
   summonPiece: function(){
-  //   console.log(event);
-
-  //   // if target = not a button
-  //   // if board's class = .show
-
-  //     var newPiece = document.createElement("img");
-  //     newPiece.setAttribute("src", "css/images/4row_black.png");
-  //     newPiece.setAttribute("draggable", "true");
-  //     newPiece.setAttribute("position", "fixed");
-  //     newPiece.setAttribute("left", event["x"]);
-  //     newPiece.setAttribute("top", event["y"]);
-  //     newPiece.id = "active-piece";
-  //     document.body.appendChild(newPiece);
-
+    player = controller.model.currentlyUp()
+    $('#gravatar').empty().append(player.gravUrl);
+    document.querySelector('#gravatar').setAttribute("draggable", "true");
   }
+
 }
 
   function dragStart(ev) {
-    debugger
-     ev.dataTransfer.effectAllowed='move';
-     ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
-     ev.dataTransfer.setDragImage(ev.target,36,36);
-     return true;
+    ev.dataTransfer.effectAllowed='move';
+    ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
+    ev.dataTransfer.setDragImage(ev.target,36,36);
+    console.log("Im here")
+    return true;
   }
 
   function dragEnter(ev) {

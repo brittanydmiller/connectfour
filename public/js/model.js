@@ -102,8 +102,15 @@ Cell.prototype = {
   }
 }
 
-function Player(name, color) {
-  this.name = name
+function Player(email, color) {
+  this.email = email
   this.color = color
+  this.gravUrl = ""
+}
+
+Player.prototype = {
+  addGrav: function(email) {
+    this.gravUrl = $.gravatar(email)
+  }
 }
 

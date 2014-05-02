@@ -139,6 +139,9 @@ div {
 
 .dropzone-square {
   height: 150px;
+  width: 88px;
+  margin: 0;
+
 }
 img {
   width: auto;
@@ -165,14 +168,4 @@ img {
 
 .show{
   display:initial;
-}
-
-#active-piece {
- /* display: block;
-  margin-left: 1%;
-  margin-right: 1%;*/
-/*  border: solid yellow 6px;
-*/  min-width: 50px;
-  width: 75px;
-  height: 75px;
 }

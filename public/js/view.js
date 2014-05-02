@@ -12,7 +12,6 @@ Display.prototype = {
     document.querySelector(".container").style.display = "block"
   },
   renderPiece: function(color) {
-    // event.target.className = "show"
     event.target.style.background = color
     // event.target.classList.add("clicked")
   }

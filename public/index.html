@@ -18,7 +18,9 @@
   <script src="js/view.js"></script>
   <script src="js/controller.js"></script>
   <script src="js/application.js"></script>
-
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+      <script type="text/javascript" src="js/gravme/md5.js"></script>
+      <script type="text/javascript" src="js/gravme/jquery.gravatar.js"></script>
 </head>
 
 <body>
@@ -28,11 +30,12 @@
 <div class="splash-container">
     <div class="splash">
         <h1 class="splash-head"><i class="fa fa-comments-o"></i>&nbsp;DBC&nbsp;Connect<span id="Four" > FOUR</span></h1>
-        <a href="/auth/linkedin"><img alt="Linkedinlogin" id="linkedin_login" src="css/images/loginbutton.png" ></a>
+        <a href=""><img alt="Linkedinlogin" id="linkedin_login" src="css/images/loginbutton.png" ></a>
     <p id="login-quote">"Make beautiful and meaningful things"</p>
         <p id="flash-notice"></p>
     </div>
 </div>
+  <div id="gravatar"></div>
   <div class="board">
     <div class="flex-container dropzone">
         <div class="dropzone-square col-0" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)"></div>
