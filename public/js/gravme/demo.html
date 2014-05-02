@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <title>jQuery.Gravatar Demo</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="md5.js"></script>
+        <script type="text/javascript" src="jquery.gravatar.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function()
+        {
+            var userEmail = prompt("Enter your email address for maximum functionality!");
+
+            if(userEmail!=null) {
+
+
+                $('#gravatar').empty().append($.gravatar(userEmail));
+
+
+            }
+
+        });
+        </script>
+    </head>
+    <body>
+        <div id="gravatar">Loading...</div>
+    </body>
+</html>
