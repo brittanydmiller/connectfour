@@ -1,7 +1,11 @@
 //////////////////////  Binder  /////////////////////////////////////
 window.onload = function() {
   view = new Display()
+  player1 = new Player("rex")
+  player2 = new Player("phil")
   model = new ConnectFour()
+  model.addPlayer(player1)
+  model.addPlayer(player2)
   controller = new GamePlay(model,view)
   new Binder(view,controller).bind()
 }
@@ -24,7 +28,7 @@ Binder.prototype = {
   },
   placePieceListener: function() {
     var cellSelector = document.querySelector(".container")
-    cellSelector.addEventListener("click", controller.dropPiece, false)
+    cellSelector.addEventListener("click", controller.dropPiece.bind(this.controller), false)
 
   }
 
