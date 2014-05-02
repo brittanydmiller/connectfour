@@ -12,7 +12,7 @@ Display.prototype = {
     document.querySelector(".container").style.display = "block"
   },
   renderPiece: function() {
-    event.target.className = "show"
+    // event.target.className = "show"
     event.target.style.background = "red"
   }
 }
