@@ -10,6 +10,10 @@ GamePlay.prototype = {
     view.renderBoard()
   },
   dropPiece: function() {
-    view.renderPiece(this)
+    // model.updateStatus
+    if (event.target.classList.contains('square')){
+      console.log("I am clicking on a square")
+      view.renderPiece()
+    }
   }
 }
