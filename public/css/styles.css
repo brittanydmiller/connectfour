@@ -8,21 +8,13 @@ body {
   background-size: cover;
   height: 100%;
   width: 100%;
-/*  top: 0;
-  left: 0;
-  position: fixed !important;*/
 }
-}
-
 
 header{
-
-
 
 }
 
 .splash-container{
-
 
 }
 
@@ -61,11 +53,7 @@ span #four {
 
 }
 
-.dropzone {
-  height: 75px;
-  background-color: green;
-  border: none;
-}
+
 .splash-head h1{
   display: block;
 }
@@ -98,18 +86,23 @@ span #four {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 15%;
-  margin-top: 15%;
   min-margin-top: 400px;
-  border: yellow solid;
+  border: yellow 6px solid;
   background: transparent;
+  box-shadow: 2px 2px 2px 2px black;
   overflow: hidden;
   display: none;
 }
 
 .board{
   height: 600px;
-
+  width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1%;
 }
+
+
 
 .flex-container {
   display: -webkit-flex;
@@ -128,18 +121,25 @@ div {
   border-radius: 10px;
 }
 
-.flex-container div {
+.square {
   display: block;
-
   margin-left: 1%;
   margin-right: 1%;
-  border: solid yellow;
+  border: solid yellow 6px;
   min-width: 50px;
   width: 75px;
   height: 75px;
   flex: 1;
 }
 
+.dropzone {
+ background-color: rgba(255,255,255,0.4);
+ border: none;
+}
+
+.dropzone-square {
+  height: 150px;
+}
 img {
   width: auto;
   min-width: 50px;
