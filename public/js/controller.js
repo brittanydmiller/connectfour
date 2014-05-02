@@ -17,9 +17,10 @@ function GamePlay(game,view) {
     }
   }
   this.updateModelAndView = function(board, lowestCellInColumn, player) {
-    self.view.renderPiece(lowestCellInColumn.id,player.color)
+    self.view.renderPiece(lowestCellInColumn.id,player.color);
     board.getCell(lowestCellInColumn.id).updateStatus(player);
-    console.log(board.hasWinner())
+    console.log(board.hasWinner());
+    console.log(board.isGameOver());
     self.game.changePlayer();
   }
 }
