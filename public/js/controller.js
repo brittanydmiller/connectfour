@@ -15,9 +15,9 @@ GamePlay.prototype = {
     if (event.target.classList.contains('square') && game.getCell(cellId).isEmpty()){
       player = controller.model.currentlyUp()
       view.renderPiece(player.color)
-      game.getCell(cellId).updateStatus()
-      controller.model.changePlayer();
+      game.getCell(cellId).updateStatus(player);
       console.log(game.hasWinner())
+      controller.model.changePlayer();
     }
   }
 }
