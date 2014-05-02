@@ -1,57 +1,31 @@
-//////////////////////  View  /////////////////////////////////////
+//////////////////////  Binder  /////////////////////////////////////
+window.onload = function() {
+  view = new Display()
+  model = new ConnectFour()
+  controller = new GamePlay(model,view)
+  new Binder(view,controller).bind()
+}
 
-rowCount = 6
-columnCount = 7
-numCells = rowCount * columnCount
+function Binder(view,controller) {
+  this.view = view
+  this.controller = controller
+}
 
-//////////////////////  Model  /////////////////////////////////////
-ConnectFour = function() {}
+Binder.prototype = {
+  bind: function() {
+    this.bindStartGameListener()
+    this.placePieceListener()
+  },
+  bindStartGameListener: function() {
+    var startButtonSelector = document.querySelector("#linkedin_login")
+    startButtonSelector.addEventListener("click", controller.initializeBoard, false)
 
-ConnectFour.prototype = {
-  generateBoard: function(numCells,columnCount) {
-    this.currentGame = new board,
-    this.currentGame.createCells(numCells,columnCount)
+    // Let's talk about initialize board - not being passed row / column info
+  },
+  placePieceListener: function() {
+    var cellSelector = document.querySelector(".container")
+    cellSelector.addEventListener("click", controller.dropPiece, false)
+
   }
+
 }
-
-function board() {
-  this.completed = false
-  this.cells = []
-}
-
-board.prototype = {
-  createCells: function(numCells,columnCount){
-    for (var i = 0; i < numCells; i++) {
-      this.cells.push(new cell(i, i % columnCount ))
-    }
-  }
-}
-
-function cell(id, column) {
-  this.status = null,
-  this.id = id,
-  this.column = column
-}
-
-//////////////////////  Controller  /////////////////////////////////////
-
-GamePlay = function(target,listeners) {
-  this.model = new ConnectFour
-  // this.view = view
-}
-
-GamePlay.prototype = {
-  initializeBoard: function(numCells,columnCount) {
-    this.model.generateBoard(numCells,columnCount)
-  }
-}
-
-
-// model = new ConnectFour
-controller = new GamePlay({} , {})
-
-controller.initializeBoard(numCells,columnCount)
-
-console.log(controller.model.currentGame.cells)
-
-

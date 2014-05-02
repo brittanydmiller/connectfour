@@ -90,6 +90,7 @@ span #four {
   border: yellow solid;
   background: transparent;
   overflow: hidden;
+  display: none;
 }
 
 .flex-container {
