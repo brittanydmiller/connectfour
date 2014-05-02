@@ -7,11 +7,12 @@ function Display() {
 
 Display.prototype = {
   renderBoard: function(rowCount, columnCount) {
+    document.querySelector(".splash-container").className = "hide"
+    // may need to append container change to update class instead of change display
     document.querySelector(".container").style.display = "block"
   },
   renderPiece: function() {
-
-    console.log(event.target)
+    event.target.className = "show"
     event.target.style.background = "red"
   }
 }

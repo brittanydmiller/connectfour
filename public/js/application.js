@@ -17,7 +17,7 @@ Binder.prototype = {
     this.placePieceListener()
   },
   bindStartGameListener: function() {
-    var startButtonSelector = document.querySelector("#start_game")
+    var startButtonSelector = document.querySelector("#linkedin_login")
     startButtonSelector.addEventListener("click", controller.initializeBoard, false)
 
     // Let's talk about initialize board - not being passed row / column info

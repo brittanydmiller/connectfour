@@ -5,6 +5,7 @@ function GamePlay(model,view) {
 
 GamePlay.prototype = {
   initializeBoard: function() {
+    event.preventDefault()
     model.generateBoard(view.numCells,view.columnCount)
     view.renderBoard()
   },
