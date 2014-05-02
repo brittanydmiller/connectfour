@@ -93,6 +93,15 @@ Board.prototype = {
       }
     }
     return lowestCell
+  },
+  isGameOver: function() {
+    var gameOver = true
+    for (var i = 0; i < this.cells.length; i++) {
+      if (this.cells[i].status === null) {
+        gameOver = false
+      }
+    }
+    return gameOver;
   }
 }
 
