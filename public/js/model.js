@@ -84,6 +84,15 @@ Board.prototype = {
         return this.cells[i]
       }
     }
+  },
+  getLowestEmptyCellinColumn: function(id) {
+    lowestCell = this.getCell(id);
+    for( var i = 0; i < this.cells.length; i ++) {
+      if (this.cells[i].column === lowestCell.column && this.cells[i].row > lowestCell.row && this.cells[i].status === null) {
+        lowestCell = this.cells[i];
+      }
+    }
+    return lowestCell
   }
 }
 
@@ -108,3 +117,6 @@ function Player(name, color) {
   this.color = color
 }
 
+
+
+// this.cells.[i].column === lowestCell.column && this.cells[i].row > lowestCell.row && this.cells[i].status === null)
