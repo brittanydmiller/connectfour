@@ -1,11 +1,7 @@
 //////////////////////  Binder  /////////////////////////////////////
 window.onload = function() {
   var view = new Display()
-  // var player1 = new Player("rex", "red")
-  // var player2 = new Player("phil", "blue")
   var game = new ConnectFour()
-  // game.addPlayer(player1)
-  // game.addPlayer(player2)
   controller = new GamePlay(game,view)
   new Binder(view,controller).bind()
 }

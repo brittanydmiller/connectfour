@@ -120,9 +120,9 @@ Cell.prototype = {
   }
 }
 
-function Player(email, color) {
+function Player(email, name) {
   this.email = email
-  this.color = color
+  this.name = name
   this.gravUrl = ""
 }
 
