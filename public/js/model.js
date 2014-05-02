@@ -46,34 +46,43 @@ Board.prototype = {
   },
   checkCellStatus: function(id) {
     for( var i = 0; i < this.cells.length; i ++) {
-      // debugger
       if (this.cells[i].id === id ) {
         return this.cells[i].status
       }
     }
   },
-  hasWinner: function(id, consecutiveCount) {
-    console.log("This is the consecutive count" + consecutiveCount)
-    coords = [this.getCell(id).row, this.getCell(id).column]
-    directions = [[1,1],[-1,-1],[1,0],[0,1],[-1,0],[0,-1],[1,-1],[-1,1]]
-    if (consecutiveCount > 3) {
-      console.log(neighborCell.status)
-      console.log(currentCell.status)
-    }
-    for ( i in directions ){
-      neighborCoords = this.getNeighborCoords(coords, directions[i])
-      if (neighborCoords && consecutiveCount < 4) {
-        currentCell = this.getCellbyCoord(coords[0], coords[1])
-        neighborCell = this.getCellbyCoord(neighborCoords[0], neighborCoords[1])
-        if (neighborCell.status === currentCell.status) {
-          this.hasWinner(neighborCell.id, consecutiveCount += 1, directions)
-        }
+  hasWinner: function() {
+    for( var i = 0; i < this.cells.length; i ++) {
+      if ( this.cells[i].status !== null && this.checkIfWinner(this.cells[i].id) === true) {
+        return true
       }
     }
-    return false
   },
-  getNeighborCoords: function(coors, directions) {
-    // debugger
+  checkIfWinner: function(id) {
+    coords = [this.getCell(id).row, this.getCell(id).column]
+    directions = [[1,1],[-1,-1],[1,0],[0,1],[-1,0],[0,-1],[1,-1],[-1,1]]
+    for ( i in directions ){
+      if (this.checkDirections(coords, directions[i], 0) === true) {
+        return true
+      }
+    }
+  },
+  checkDirections: function(coords, direction, countAdder) {
+    consecutiveCount = 0
+    consecutiveCount += countAdder
+    neighborCoords = this.getNeighborCoords(coords, direction)
+      if (neighborCoords) {
+        currentCell = this.getCellbyCoord(coords[0], coords[1])
+        neighborCell = this.getCellbyCoord(neighborCoords[0], neighborCoords[1])
+        if (neighborCell.status === currentCell.status && currentCell.status !== null ) {
+          this.checkDirections(neighborCoords, direction, countAdder += 1)
+          if (consecutiveCount > 2) {
+            return true
+          }
+        }
+      }
+  },
+  getNeighborCoords: function(coords, directions) {
     neighborRow = coords[0] + directions[0]
     neighborColumn = coords[1] + directions[1]
     if (neighborRow < 0 || neighborColumn < 0 || neighborRow > 5 || neighborColumn > 6) {
@@ -84,7 +93,6 @@ Board.prototype = {
     }
   },
   getCellbyCoord: function(row, column) {
-    // debugger
     for( var i = 0; i < this.cells.length; i ++) {
       if (this.cells[i].row === row && this.cells[i].column === column) {
         return this.cells[i]

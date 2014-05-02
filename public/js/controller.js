@@ -20,7 +20,7 @@ GamePlay.prototype = {
       game.checkCellStatus(cellId)
       controller.model.changePlayer();
       console.log(controller.model.currentGame.checkCellStatus(cellId))
-      winnerTest = game.hasWinner(cellId, 0)
+      winnerTest = game.hasWinner()
       console.log(winnerTest)
     }
   }
