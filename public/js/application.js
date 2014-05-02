@@ -1,8 +1,8 @@
 //////////////////////  Binder  /////////////////////////////////////
 window.onload = function() {
   view = new Display()
-  player1 = new Player("rex")
-  player2 = new Player("phil")
+  player1 = new Player("rex", "red")
+  player2 = new Player("phil", "blue")
   model = new ConnectFour()
   model.addPlayer(player1)
   model.addPlayer(player2)
