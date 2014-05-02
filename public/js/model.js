@@ -37,28 +37,40 @@ Board.prototype = {
       }
     }
   },
+  getCell: function(id) {
+    for (var i = 0; i < this.cells.length; i++) {
+      if(this.cells[i].id === id) {
+        return this.cells[i]
+      }
+    }
+  },
   checkCellStatus: function(id) {
     for( var i = 0; i < this.cells.length; i ++) {
       // debugger
       if (this.cells[i].id === id ) {
-        return this.cells[i].status.name
+        return this.cells[i].status
       }
     }
   }
 }
 
 function Cell(id, column) {
-  this.status = null,
-  this.id = id,
+  this.status = null
+  this.id = id
   this.column = column
 }
 
 Cell.prototype = {
   updateStatus: function(player) {
     this.status = player
+  },
+  isEmpty: function() {
+    return this.status === null
   }
 }
 
-function Player(name) {
+function Player(name, color) {
   this.name = name
+  this.color = color
 }
+

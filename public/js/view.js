@@ -11,8 +11,9 @@ Display.prototype = {
     // may need to append container change to update class instead of change display
     document.querySelector(".container").style.display = "block"
   },
-  renderPiece: function() {
+  renderPiece: function(color) {
     // event.target.className = "show"
-    event.target.style.background = "red"
+    event.target.style.background = color
+    // event.target.classList.add("clicked")
   }
 }
