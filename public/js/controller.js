@@ -10,10 +10,17 @@ GamePlay.prototype = {
     view.renderBoard()
   },
   dropPiece: function() {
-    // model.updateStatus
-    if (event.target.classList.contains('square')){
-      console.log("I am clicking on a square")
-      view.renderPiece()
+    cellId = parseInt(event.target.id)
+    game = controller.model.currentGame
+    if (event.target.classList.contains('square') && game.getCell(cellId).isEmpty()){
+      player = controller.model.currentlyUp()
+      view.renderPiece(player.color)
+      game.getCell(cellId).updateStatus()
+      controller.model.changePlayer();
+      console.log(game.hasWinner())
     }
   }
 }
+
+
+
