@@ -1,26 +1,26 @@
-function GamePlay(model,view) {
-  this.model = model
+function GamePlay(game,view) {
+  this.game = game
   this.view = view
-}
-
-GamePlay.prototype = {
-  initializeBoard: function() {
+  var self = this
+  this.initializeBoard = function() {
     event.preventDefault()
-    model.generateBoard(view.numCells,view.columnCount)
-    view.renderBoard()
-  },
-  dropPiece: function() {
-    cellId = parseInt(event.target.id)
-    game = controller.model.currentGame
-    if (event.target.classList.contains('square') && game.getCell(cellId).isEmpty()){
-      player = controller.model.currentlyUp()
-      view.renderPiece(player.color)
-      game.getCell(cellId).updateStatus(player);
-      console.log(game.hasWinner())
-      controller.model.changePlayer();
+    self.game.generateBoard(self.view.numCells,self.view.columnCount)
+    self.view.renderBoard()
+  }
+ this.dropPiece =  function() {
+    var cellId = parseInt(event.target.id)
+    var board = self.game.board
+    var lowestCellInColumn = board.getLowestEmptyCellinColumn(cellId)
+    var player = self.game.currentlyUp()
+    if (board.getCell(cellId).isEmpty()){
+      self.updateModelAndView(board, lowestCellInColumn, player)
     }
   }
+  this.updateModelAndView = function(board, lowestCellInColumn, player) {
+    self.view.renderPiece(lowestCellInColumn.id,player.color)
+    board.getCell(lowestCellInColumn.id).updateStatus(player);
+    console.log(board.hasWinner())
+    self.game.changePlayer();
+  }
 }
-
-
 
