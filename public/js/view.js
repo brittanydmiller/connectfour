@@ -11,6 +11,7 @@ Display.prototype = {
     // may need to append container change to update class instead of change display
     document.querySelector(".container").style.display = "block"
     document.querySelector(".dropzone").style.visibility = "visible"
+    document.querySelector("#gravatar").style.display = "block"
   },
 
   renderPiece: function(id, background) {
@@ -22,6 +23,7 @@ Display.prototype = {
 
   renderWinner: function(player) {
     document.querySelector(".dropzone").className = "hide"
+    document.querySelector("#gravatar").className = "hide"
     document.querySelector("#winner").style.display = "block"
     document.querySelector(".winner-text").innerHTML = '<i class="fa fa-comments-o"></i> ' + player.name + " wins"
   }

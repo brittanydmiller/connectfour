@@ -29,6 +29,7 @@ function GamePlay(game,view) {
     player = self.game.currentlyUp()
     $('#gravatar').empty().append(player.gravUrl);
     document.querySelector('#gravatar').setAttribute("draggable", "true");
+    $('#gravatar').append(player.name)
   }
   this.updateModelAndView = function(board, lowestCellInColumn, player) {
     self.view.renderPiece(lowestCellInColumn.id,player.gravUrl[0].getAttribute('src'));
