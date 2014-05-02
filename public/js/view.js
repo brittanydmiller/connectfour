@@ -17,5 +17,11 @@ Display.prototype = {
     console.log(lowestElementInRow)
     lowestElementInRow.css('background', color);
     // event.target.style.background = color
+  },
+
+  renderWinner: function(player) {
+    document.querySelector(".dropzone").className = "hide"
+    document.querySelector("#winner").style.display = "block"
+    document.querySelector(".winner-text").innerHTML = '<i class="fa fa-comments-o"></i> ' + player.name + " wins"
   }
 }

@@ -169,3 +169,12 @@ img {
 .show{
   display:initial;
 }
+
+.centered {
+  margin-left: 50px;
+}
+
+#winner {
+  margin-top: 0;
+  padding-top: 0;
+}

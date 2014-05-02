@@ -120,9 +120,9 @@ Cell.prototype = {
   }
 }
 
-function Player(email, color) {
+function Player(email, name) {
   this.email = email
-  this.color = color
+  this.name = name
   this.gravUrl = ""
 }
 
@@ -131,7 +131,3 @@ Player.prototype = {
     this.gravUrl = $.gravatar(email)
   }
 }
-
-
-
-// this.cells.[i].column === lowestCell.column && this.cells[i].row > lowestCell.row && this.cells[i].status === null)

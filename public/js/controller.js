@@ -8,15 +8,14 @@ function GamePlay(game,view) {
     self.view.renderBoard()
   }
   this.initializePlayers =  function() {
-    player1 = new Player("drewfwest@gmail.com", "red")
-    player2 = new Player("brittanydmiller@gmail.com", "blue")
+    player1 = new Player("brick@devbootcamp.com", "Brick")
+    player2 = new Player("savinirs@gmail.com", "Rao")
     player1.addGrav(player1.email)
     player2.addGrav(player2.email)
     self.game.addPlayer(player1)
     self.game.addPlayer(player2)
   }
  this.dropPiece =  function() {
-  // debugger
     var cellId = parseInt(event.target.id)
     var board = self.game.board
     var lowestCellInColumn = board.getLowestEmptyCellinColumn(cellId)
@@ -34,8 +33,14 @@ function GamePlay(game,view) {
     self.view.renderPiece(lowestCellInColumn.id,player.color);
     board.getCell(lowestCellInColumn.id).updateStatus(player);
     console.log(board.hasWinner());
+    if (board.hasWinner()) {
+          self.view.renderWinner(player)
+        }
     console.log(board.isGameOver());
     self.game.changePlayer();
     this.summonPiece()
   }
 }
+
+
+
