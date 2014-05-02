@@ -32,7 +32,6 @@ function GamePlay(game,view) {
     document.querySelector('#gravatar').setAttribute("draggable", "true");
   }
   this.updateModelAndView = function(board, lowestCellInColumn, player) {
-    // debugger
     self.view.renderPiece(lowestCellInColumn.id,player.gravUrl[0].getAttribute('src'));
     board.getCell(lowestCellInColumn.id).updateStatus(player);
     console.log(board.hasWinner());

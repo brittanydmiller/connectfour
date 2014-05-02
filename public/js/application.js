@@ -27,10 +27,6 @@ Binder.prototype = {
     startButtonSelector.addEventListener("click", this.controller.initializePlayers, false)
   },
   placePieceListener: function() {
-    // debugger
-    // var cellSelector = $('.container')
-    // console.log(this.controller)
-    // cellSelector.on('click', '.square', this.controller.dropPiece)
     var cellSelector = document.querySelector('.container')
     cellSelector.addEventListener("click", this.controller.dropPiece)
   },
@@ -43,7 +39,6 @@ function dragStart(ev) {
     ev.dataTransfer.effectAllowed='move';
     ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
     ev.dataTransfer.setDragImage(ev.target,36,36);
-    console.log("Im here")
     return true;
   }
 
@@ -57,12 +52,8 @@ function dragStart(ev) {
   }
 
   function dragDrop(ev) {
-    // debugger
     var data = ev.dataTransfer.getData("Text");
-    //ev.target.appendChild(document.getElementById(data));
     ev.stopPropagation();
     controller.dropPiece(ev.target.id)
-    // console.log(this);
-    //this.dropPiece();
     return false;
   }
