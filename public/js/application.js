@@ -19,6 +19,7 @@ Binder.prototype = {
   bind: function() {
     this.bindStartGameListener()
     this.placePieceListener()
+    this.summonActiveListener()
   },
   bindStartGameListener: function() {
     var startButtonSelector = document.querySelector("#linkedin_login")
@@ -29,7 +30,10 @@ Binder.prototype = {
   placePieceListener: function() {
     var cellSelector = document.querySelector(".container")
     cellSelector.addEventListener("click", controller.dropPiece.bind(this.controller), false)
+  },
 
+  summonActiveListener: function() {
+    var newPieceSelector = document.querySelector("body")
+    newPieceSelector.addEventListener("click", controller.summonPiece, false)
   }
-
 }

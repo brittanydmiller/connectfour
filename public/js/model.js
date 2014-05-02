@@ -28,7 +28,6 @@ Board.prototype = {
     for (var i = 0; i < numCells; i++) {
       this.cells.push(new Cell(i, i % columnCount ))
     }
-    console.log(this.cells)
   },
   updateCellStatus: function(id, player) {
     for (var i = 0; i < this.cells.length; i++) {
@@ -39,7 +38,6 @@ Board.prototype = {
   },
   checkCellStatus: function(id) {
     for( var i = 0; i < this.cells.length; i ++) {
-      // debugger
       if (this.cells[i].id === id ) {
         return this.cells[i].status.name
       }
