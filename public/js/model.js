@@ -4,8 +4,8 @@ function ConnectFour() {
 
 ConnectFour.prototype = {
   generateBoard: function(numCells,columnCount) {
-    this.currentGame = new Board(),
-    this.currentGame.generateCells(numCells,columnCount)
+    this.board = new Board(),
+    this.board.generateCells(numCells,columnCount)
   },
   addPlayer: function(player) {
     this.players.push(player)
@@ -83,6 +83,24 @@ Board.prototype = {
         return this.cells[i]
       }
     }
+  },
+  getLowestEmptyCellinColumn: function(id) {
+    lowestCell = this.getCell(id);
+    for( var i = 0; i < this.cells.length; i ++) {
+      if (this.cells[i].column === lowestCell.column && this.cells[i].row > lowestCell.row && this.cells[i].status === null) {
+        lowestCell = this.cells[i];
+      }
+    }
+    return lowestCell
+  },
+  isGameOver: function() {
+    var gameOver = true
+    for (var i = 0; i < this.cells.length; i++) {
+      if (this.cells[i].status === null) {
+        gameOver = false
+      }
+    }
+    return gameOver;
   }
 }
 
@@ -114,3 +132,6 @@ Player.prototype = {
   }
 }
 
+
+
+// this.cells.[i].column === lowestCell.column && this.cells[i].row > lowestCell.row && this.cells[i].status === null)
