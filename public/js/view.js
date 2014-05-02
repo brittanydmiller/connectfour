@@ -10,6 +10,7 @@ Display.prototype = {
     document.querySelector(".splash-container").className = "hide"
     // may need to append container change to update class instead of change display
     document.querySelector(".container").style.display = "block"
+    document.querySelector(".dropzone").style.visibility = "visible"
   },
 
   renderPiece: function(id, background) {
