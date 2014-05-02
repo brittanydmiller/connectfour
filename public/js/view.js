@@ -10,12 +10,13 @@ Display.prototype = {
     document.querySelector(".splash-container").className = "hide"
     // may need to append container change to update class instead of change display
     document.querySelector(".container").style.display = "block"
+    document.querySelector(".dropzone").style.visibility = "visible"
   },
 
-  renderPiece: function(id, color) {
+  renderPiece: function(id, background) {
     lowestElementInRow = $('#' + id);
     console.log(lowestElementInRow)
-    lowestElementInRow.css('background', color);
+    lowestElementInRow.css('background', 'url('+ background + ')');
     // event.target.style.background = color
   },
 

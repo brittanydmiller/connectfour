@@ -15,8 +15,9 @@ function GamePlay(game,view) {
     self.game.addPlayer(player1)
     self.game.addPlayer(player2)
   }
- this.dropPiece =  function() {
-    var cellId = parseInt(event.target.id)
+
+ this.dropPiece =  function(id) {
+    var cellId = parseInt(id - 42)
     var board = self.game.board
     var lowestCellInColumn = board.getLowestEmptyCellinColumn(cellId)
     var player = self.game.currentlyUp()
@@ -30,7 +31,7 @@ function GamePlay(game,view) {
     document.querySelector('#gravatar').setAttribute("draggable", "true");
   }
   this.updateModelAndView = function(board, lowestCellInColumn, player) {
-    self.view.renderPiece(lowestCellInColumn.id,player.color);
+    self.view.renderPiece(lowestCellInColumn.id,player.gravUrl[0].getAttribute('src'));
     board.getCell(lowestCellInColumn.id).updateStatus(player);
     console.log(board.hasWinner());
     if (board.hasWinner()) {

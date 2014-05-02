@@ -88,11 +88,18 @@ span #four {
   margin-bottom: 15%;
   min-margin-top: 400px;
   border: yellow 6px solid;
-  background: transparent;
+  background-color: rgba(255,255,255,0.4);
   box-shadow: 2px 2px 2px 2px black;
   overflow: hidden;
   display: none;
+
 }
+
+#gravatar {
+  width: 100px;
+  float:left;
+}
+
 
 .board{
   height: 600px;
@@ -135,6 +142,7 @@ div {
 .dropzone {
  background-color: rgba(255,255,255,0.4);
  border: none;
+ visibility: hidden;
 }
 
 .dropzone-square {
