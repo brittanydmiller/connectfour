@@ -53,7 +53,6 @@ span #four {
 
 }
 
-
 .splash-head h1{
   display: block;
 }
@@ -87,19 +86,13 @@ span #four {
   margin-right: auto;
   margin-bottom: 15%;
   min-margin-top: 400px;
-  border: yellow 6px solid;
+  border: 5px solid yellow;
   background-color: rgba(255,255,255,0.4);
   box-shadow: 2px 2px 2px 2px black;
   overflow: hidden;
   display: none;
 
 }
-
-#gravatar {
-  width: 100px;
-  float:left;
-}
-
 
 .board{
   height: 600px;
@@ -108,8 +101,6 @@ span #four {
   margin-right: auto;
   margin-bottom: 1%;
 }
-
-
 
 .flex-container {
   display: -webkit-flex;
@@ -132,7 +123,7 @@ div {
   display: block;
   margin-left: 1%;
   margin-right: 1%;
-  border: solid yellow 6px;
+  border: 5px solid yellow;
   min-width: 50px;
   width: 75px;
   height: 75px;
@@ -151,12 +142,48 @@ div {
   margin: 0;
 
 }
+
 img {
   width: auto;
   min-width: 50px;
   border-radius: 5px;
   margin: 10px auto;
 }
+
+#gravatar {
+
+  float:left;
+  color: white;
+  text-shadow: 2px 1px black;
+  width: 140px;
+  border: 4px solid white;
+  box-shadow: 4px 4px 5px #888888;
+  font-weight: 700;
+  border-radius: 5px;
+  font-size: 2em;
+  text-align: center;
+}
+
+#winner{
+  color: white;
+  text-shadow: 2px 1px black;
+  min-width: 350px;
+  width: 50%;
+  border: 4px solid white;
+  box-shadow: 1px 1px 1px 1px black;
+  margin: 0 auto 3% auto;
+  padding: 40px 10px;
+  font-weight: 700;
+  border-radius: 5px;
+  line-height: 1em;
+  background-color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+}
+
+/*img #drop-arrow {
+  height: 50%;
+  width: 50%;
+}*/
 
 .empty {
 
@@ -182,7 +209,4 @@ img {
   margin-left: 50px;
 }
 
-#winner {
-  margin-top: 0;
-  padding-top: 0;
-}
+
