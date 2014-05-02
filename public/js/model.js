@@ -131,7 +131,3 @@ Player.prototype = {
     this.gravUrl = $.gravatar(email)
   }
 }
-
-
-
-// this.cells.[i].column === lowestCell.column && this.cells[i].row > lowestCell.row && this.cells[i].status === null)
