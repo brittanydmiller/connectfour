@@ -8,18 +8,19 @@ function GamePlay(game,view) {
     self.view.renderBoard()
   }
  this.dropPiece =  function() {
-    // debugger
     var cellId = parseInt(event.target.id)
     var board = self.game.board
     var lowestCellInColumn = board.getLowestEmptyCellinColumn(cellId)
+    var player = self.game.currentlyUp()
     if (board.getCell(cellId).isEmpty()){
-      var player = self.game.currentlyUp()
-      console.log(board.getLowestEmptyCellinColumn(cellId).row)
-      self.view.renderPiece(lowestCellInColumn.id,player.color)
-      board.getCell(lowestCellInColumn.id).updateStatus(player);
-      console.log(board.hasWinner())
-      self.game.changePlayer();
+      self.updateModelAndView(board, lowestCellInColumn, player)
     }
+  }
+  this.updateModelAndView = function(board, lowestCellInColumn, player) {
+    self.view.renderPiece(lowestCellInColumn.id,player.color)
+    board.getCell(lowestCellInColumn.id).updateStatus(player);
+    console.log(board.hasWinner())
+    self.game.changePlayer();
   }
 }
 

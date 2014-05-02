@@ -29,8 +29,6 @@ Binder.prototype = {
   placePieceListener: function() {
     var cellSelector = $('.container')
     cellSelector.on('click', '.square', this.controller.dropPiece)
-
   }
-
 }
 
