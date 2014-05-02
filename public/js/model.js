@@ -28,7 +28,6 @@ Board.prototype = {
     for (var i = 0; i < numCells; i++) {
       this.cells.push(new Cell(i, Math.floor(i % columnCount), Math.floor(i / columnCount )))
     }
-    console.log(this.cells)
   },
   getCell: function(id) {
     for (var i = 0; i < this.cells.length; i++) {
@@ -121,9 +120,16 @@ Cell.prototype = {
   }
 }
 
-function Player(name, color) {
-  this.name = name
+function Player(email, color) {
+  this.email = email
   this.color = color
+  this.gravUrl = ""
+}
+
+Player.prototype = {
+  addGrav: function(email) {
+    this.gravUrl = $.gravatar(email)
+  }
 }
 
 
