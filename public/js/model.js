@@ -4,8 +4,8 @@ function ConnectFour() {
 
 ConnectFour.prototype = {
   generateBoard: function(numCells,columnCount) {
-    this.currentGame = new Board(),
-    this.currentGame.generateCells(numCells,columnCount)
+    this.board = new Board(),
+    this.board.generateCells(numCells,columnCount)
   },
   addPlayer: function(player) {
     this.players.push(player)
