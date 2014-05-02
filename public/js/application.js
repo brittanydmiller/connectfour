@@ -6,7 +6,7 @@ window.onload = function() {
   var game = new ConnectFour()
   // game.addPlayer(player1)
   // game.addPlayer(player2)
-  var controller = new GamePlay(game,view)
+  controller = new GamePlay(game,view)
   new Binder(view,controller).bind()
 }
 
@@ -57,8 +57,12 @@ function dragStart(ev) {
   }
 
   function dragDrop(ev) {
+    // debugger
     var data = ev.dataTransfer.getData("Text");
-    ev.target.appendChild(document.getElementById(data));
+    //ev.target.appendChild(document.getElementById(data));
     ev.stopPropagation();
+    controller.dropPiece(ev.target.id)
+    // console.log(this);
+    //this.dropPiece();
     return false;
   }

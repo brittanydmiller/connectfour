@@ -12,10 +12,10 @@ Display.prototype = {
     document.querySelector(".container").style.display = "block"
   },
 
-  renderPiece: function(id, color) {
+  renderPiece: function(id, background) {
     lowestElementInRow = $('#' + id);
     console.log(lowestElementInRow)
-    lowestElementInRow.css('background', color);
+    lowestElementInRow.css('background', 'url('+ background + ')');
     // event.target.style.background = color
   }
 }
