@@ -38,24 +38,4 @@ function GamePlay(game,view) {
     self.game.changePlayer();
     this.summonPiece()
   }
-  // this.dragStart = function(ev) {
-  //   ev.dataTransfer.effectAllowed='move';
-  //   ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
-  //   ev.dataTransfer.setDragImage(ev.target,36,36);
-  //   console.log("Im here")
-  //   return true;
-  // }
-  // this.dragEnter = function(ev) {
-  //   ev.preventDefault();
-  //   return true;
-  // }
-  // this.dragOver = function(ev) {
-  //   ev.preventDefault();
-  // }
-  // this.dragDrop = function(ev) {
-  //   var data = ev.dataTransfer.getData("Text");
-  //   ev.target.appendChild(document.getElementById(data));
-  //   ev.stopPropagation();
-  //   return false;
-  // }
 }

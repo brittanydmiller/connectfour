@@ -39,7 +39,6 @@ Binder.prototype = {
     newPieceSelector.addEventListener("click", this.controller.summonPiece, false)
   }
 }
-
 function dragStart(ev) {
     ev.dataTransfer.effectAllowed='move';
     ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
