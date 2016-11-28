@@ -18,7 +18,7 @@ Binder.prototype = {
     this.summonActiveListener()
   },
   bindStartGameListener: function() {
-    var startButtonSelector = document.querySelector("#linkedin_login")
+    var startButtonSelector = document.querySelector("#start")
     startButtonSelector.addEventListener("click", this.controller.initializeBoard, false)
     startButtonSelector.addEventListener("click", this.controller.initializePlayers, false)
   },
